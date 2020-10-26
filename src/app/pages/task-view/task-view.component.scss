@@ -30,6 +30,8 @@
 }
 
 .task-list-container {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -101,4 +103,20 @@
     text-decoration: line-through;
     opacity: 0.8;
   }
+}
+
+.circle-add-button {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+
+  height: 50px;
+  width: 50px;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+
+  font-size: 25px;
+  color: white;
 }
