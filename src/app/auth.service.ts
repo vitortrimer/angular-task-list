@@ -1,4 +1,4 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { shareReplay, tap } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { WebRequestService } from './web-request.service';
 })
 export class AuthService {
 
-  constructor(private webService: WebRequestService, private router: Router) { }
+  constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
   login(email: string, password: string) {
     return this.webService.login(email, password).pipe(
@@ -36,6 +36,20 @@ export class AuthService {
     this.router.navigateByUrl('/login');
   }
 
+  getNewAccessToken() {
+    return this.http.get(`${this.webService.ROOT_URL}/users/me/access-token`, {
+      headers: {
+        'x-refresh-token': this.getRefreshToken(),
+        '_id': this.getUserId()
+      },
+      observe: 'response'
+    }).pipe(
+      tap((res: HttpResponse<any>) => {
+        this.setAccessToken(res.headers.get('x-access-token'));
+      })
+    )
+  }
+
   getAccessToken() {
     return localStorage.getItem('x-access-token');
   }
@@ -44,10 +58,14 @@ export class AuthService {
     return localStorage.getItem('x-refresh-token');
   }
 
+  getUserId() {
+    return localStorage.getItem('user-id');
+  }
+
+
   setAccessToken(accessToken: string) {
     localStorage.setItem('x-access-token', accessToken);
   }
-
 
   private setSession(userId: string, accessToken: string, refreshToken: string) {
     localStorage.setItem('user-id', userId);
