@@ -1,5 +1,17 @@
 # Frontend
 
+
+## What you will see in this project
+This is a task lists project. And it is built with MEAN stack, and to run or see the backend project you can [click here](https://github.com/vitortrimer/task-manager-backend). It uses jwt authentication and have different lists for each user.
+
+### Login page
+![login page image](https://i.imgur.com/n2t97Hr.png)
+
+### Main page
+![main page image](https://i.imgur.com/nYDwDzN.png)
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Development server
