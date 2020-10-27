@@ -2,7 +2,7 @@
 
 
 ## What you will see in this project
-This is a task lists project. And it is built with MEAN stack, and to run or see the backend project you can [click here](https://github.com/vitortrimer/task-manager-backend). It uses jwt authentication and have different lists for each user.
+This is a task lists project. And it is built with MEAN stack, and to run or see the backend project you can [click here](https://github.com/vitortrimer/task-manager-backend). It uses jwt authentication and have different lists for each user. To do that application i've followed [this tutorial](https://www.youtube.com/watch?v=V-CeWkz1MNQ&list=PLIjdNHWULhPSZFDzQU6AnbVQNNo1NTRpd), I strongly recomend this tutorial for those who already know javascript or typescript, or that is coming from Reactjs (my case) or Vuejs
 
 ### Login page
 ![login page image](https://i.imgur.com/n2t97Hr.png)
