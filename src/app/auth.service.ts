@@ -16,7 +16,6 @@ export class AuthService {
       shareReplay(),
       tap((res: HttpResponse<any>) => {
         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-        this.router.navigateByUrl('/lists')
       })
     )
   }
